@@ -1,12 +1,14 @@
 import {Component, EventEmitter} from '@angular/core';
-import {NavController} from 'ionic-angular';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {DomSanitizer} from '@angular/platform-browser';
 
+
+@IonicPage()
 @Component({
-    selector: 'page-home',
-    templateUrl: 'home.html'
+    selector: 'page-cards',
+    templateUrl: 'cards.html',
 })
-export class HomePage {
+export class CardsPage {
 
     ready = false;
     attendants = [];
@@ -47,8 +49,8 @@ export class HomePage {
 
 
     constructor(private sanitizer: DomSanitizer,
-                public navCtrl: NavController) {
-
+                public navCtrl: NavController,
+                public navParams: NavParams) {
 
         for (let i = 0; i < this.images.length; i++) {
             this.attendants.push({
@@ -61,7 +63,6 @@ export class HomePage {
         }
 
         this.ready = true;
-
     }
 
     onCardInteract(event) {

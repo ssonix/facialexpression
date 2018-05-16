@@ -1,0 +1,33 @@
+<ion-content>
+  <ion-grid>
+    <ion-row class="mt90">
+      <ion-col>
+        <div class="card-container" *ngIf="ready">
+          <sc-card padding *ngFor="let attendant of attendants"
+                   [orientation]="cardDirection"
+                   [tinder-card]="cardOverlay"
+                   [callDestroy]="attendant.destroyEvent"
+                   [callLike]="attendant.likeEvent"
+                   (onLike)="onCardInteract($event)">
+
+            <div class="user_img" [style.background]="attendant.asBg">
+              <div class="layer">
+
+              </div>
+            </div>
+          </sc-card>
+
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer>
+  <div class="footer-icons">
+    <div class="footer-ico"><img src="./../assets/imgs/recognition.png"></div>
+    <div class="footer-ico"><img src="./../assets/imgs/cards.png"></div>
+    <div class="footer-ico"><img src="./../assets/imgs/leaderboard.png"></div>
+    <div class="footer-ico"><img src="./../assets/imgs/setting.png"></div>
+  </div>
+</ion-footer>
